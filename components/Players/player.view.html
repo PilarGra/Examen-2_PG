@@ -1,0 +1,188 @@
+<!--Inicio del menu jugador.(Pilar)-->
+<div class="wrapper">
+  <div class="sidebar" data-color="XXX">
+    <div class="sidebar-wrapper">
+        <div class="logo">
+           <img src="#" style="width: 100px;">
+        </div>
+        
+    	</div>
+    </div>
+    <div class="main-panel">
+      <nav class="navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse"></div>
+      </nav>
+          <!-- Page Content -->
+
+<!--Registrar jugadores, listar v y modificar jugadores en conjunto con impresión de los datos.(Pilar)-->
+<div class="container-fluid" ng-show="pagina==1">
+  <md-toolbar layout="row" layout-sm="column" layout-align="left center" layout-wrap class="md-whiteframe-1dp">
+    <div class="btn-group">
+     <md-button class="btn" type="button">Jugadores</md-button>
+     <md-button data-toggle="dropdown" class="btn dropdown-toggle" type="button"><span class="caret"></span></md-button>
+     <ul class="dropdown-menu">
+      <li><a ng-click="siguiente()">Ver jugadores registrados</a></li>
+       <li><a href="#!/players">Registrar jugadores</a></li>
+     </ul>
+    </div>
+
+    <div class="btn-group">
+     <md-button ng-click="siguiente()" class="btn" type="button">Exhibiciones</md-button>
+     <md-button data-toggle="dropdown" class="btn dropdown-toggle" type="button"><span class="caret"></span></md-button>
+     <ul class="dropdown-menu">
+      <li><a href="#!/totalexhibitions">Exhibiciones registradas</a></li>
+       <li><a href="#!/exhibitions">Registro de exhibiciones</a></li>
+     </ul>
+    </div>
+
+    <div class="btn-group">
+      <md-button ng-click="siguiente()" class="btn" type="button">Torneos</md-button>
+      <md-button data-toggle="dropdown" class="btn dropdown-toggle" type="button"><span class="caret"></span></md-button>
+        <ul class="dropdown-menu">
+          <li><a href="#!/totalFights">Torneos registrados</a></li>
+          <li><a href="#!/fightsAdmin">Registro de competidores</a></li>
+          <li><a href="#!/fights">Registro de competiciones</a></li>
+          <li><a href="#!/fights">Registro de torneo</a></li>
+          <li><a href="#">Ver calendarios</a></li>
+        </ul>
+      </div>
+      <span flex></span>
+  </md-toolbar>
+
+  <section id="registerPlayer">
+    <h1>Registro de Jugador</h1>
+    <hr>
+
+    <!--Creación del formulario para registro  -->
+    <form name="frmRegisterPlayer" ng-submit="vm.presave(vm)" novalidate autocomplete="off">
+      <!--Inicio de los inputs para el formulario  -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <md-input-container class="col-xs-12 col-sm-4 col-md-4 select2" layout="column">
+          <label for="">Código:</label>
+          <input type="text" ng-model="vm.code" name="code" required>
+          <div ng-messages="frmRegisterPlayer.code.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--cierre del ng-messages -->
+        </md-input-container>
+
+        <md-input-container class="col-xs-12 col-sm-4 col-md-4" layout="column">
+          <label for="">Nombre del Jugador:</label>
+          <input type="text" ng-model="vm.namePlayer" name="namePlayer" ng-maxlength="20" required>
+          <div ng-messages="frmRegisterPlayer.namePlayer.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--cierre del ng-messages -->
+        </md-input-container>
+
+        <md-input-container class="col-xs-12 col-sm-4 col-md-4 select2" layout="column">
+          <label for="">Primer apellido:</label>
+          <input type="text" ng-model="vm.firstName" name="firstName" ng-maxlength="20" required>
+          <div ng-messages="frmRegisterPlayer.firstName.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--cierre del ng-messages -->
+        </md-input-container>
+
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <md-input-container class="col-xs-12 col-sm-4 col-md-4 select2" layout="column">
+          <label for="">Alias:</label>
+          <input type="text" ng-model="vm.alias" name="alias" required>
+          <div ng-messages="frmRegisterPlayer.alias.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--cierre del ng-messages -->
+        </md-input-container>
+
+        <md-input-container class="col-xs-12 col-sm-4 col-md-4 select2" layout="column">
+          <label for="">Cantidad de dinero:</label>
+          <input type="text" ng-model="vm.money" name="money" required>
+          <div ng-messages="frmRegisterPlayer.money.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--cierre del ng-messages -->
+        </md-input-container>
+
+
+      </div>
+
+      <!-- Botones de Seleccione foto, Registrar y Actualizar -->
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="input-group">
+          <label class="input-group-btn">
+            <span class="btn btn-info">Seleccionar foto
+              <input type="file" style="display: none;" ng-model="vm.photo" name="photo" id="photo">
+            </span>
+          </label>
+        </div>
+
+        <div id="registrar">
+          <md-button class="button Active" type="submit" ng-disabled="frmRegisterPlayer.$invalid">Registrar jugador</md-button>
+        </div>
+        <div class="displayNone" id="actualizar">
+          <md-button class="button edit" type="button" ng-disabled="frmRegisterPlayer.$invalid" ng-click="vm.update(player)">Actualizar jugador</md-button>
+        </div>
+        <p class="Accepted"></p>   <!-- parrafo que muestra el estado correcto de un registro -->
+      </div>
+    </form>
+
+  </section>
+
+</div>
+
+<div class=" col-md-12" ng-show="pagina==2">
+
+<h1>Jugadores registrados</h1>
+<hr>
+<!--Crear buscar jugadores-->
+<section class="inputSearch">
+  <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+    <form action="" class="search-form">
+      <div class="form-group has-feedback">
+        <label for="Buscar" class="sr-only">Buscar</label>
+        <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+    <div class="col-xs-12">
+      <md-card class="container-fluid col-md-6" ng-repeat="player in vm.players
+      | filter:vm.nameFilter"><!--Impresión de los datos-->
+        <md-card-header>
+          <md-card-header-text>
+            <span class="md-subhead">Código: {{player.code}}</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+              <span class="md-subhead">Nombre: {{player.time | date: "hh:mm a"}}</span>
+              <span class="md-subhead">Apellido: {{player.place}}</span>
+              <span class="md-subhead">Alias: {{player.alias}}</span>
+              <span class="md-subhead">Cantidad de dinero: {{player.money}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="{{player.photo}}" alt="Description" class="photoStudent">
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <!-- Boton para cambiar el editar las jugador -->
+        <md-card-actions id="buttons" >
+          <md-button class="edit" ng-click="vm.getInfo(player);vm.hideButton();registro1()">Editar</md-button>
+          <md-button class="Active" ng-click="vm.active(player)">Activo</md-button>
+          <md-button class="edit" ng-click="vm.inactive(player)">Inactivo</md-button>
+      <md-card-icon-actions><!-- cierre botones  -->
+    </div>
+  </div>
+</div>
