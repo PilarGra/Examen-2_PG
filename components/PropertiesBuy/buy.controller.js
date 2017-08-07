@@ -88,12 +88,39 @@
         clean();
       } // Cierre de la función update
 
+   // Inicio de la función DiscountPrice que es la resta los valores ----PRUEBA.
+      vm.DiscountPrice = function(){
+        var playersList = playersService.getPlayers();
+        var buyList = buyService.getPurchases();
+        var disponible = 0;
+
+        for (var i = 0; i < purchasesList.length; i++) {
+          if (purchasesList[i].players = playersList[i].namePlayer) {
+            disponible = playersList[i].money - buyList[i].price;
+            updateDescuento(disponible);
+          }
+        }
+      }// Cierre de la función DiscountPrice  que es la resta los valores.
+
+     // Inicio de la función updateDescuento  que es la resta los valores en la card ----PRUEBA..
+      function updateDescuento(pdisponible){
+        var playersList = playersService.getPlayers();
+        var buyList = buyService.getPurchases();
+
+        for (var i = 0; i < buyList.length; i++) {
+          if (buyList[i].players = playersList[i].namePlayer) {
+            playersList[i].money = pdisponible;
+            localStorage.setItem('lsPlayersList', JSON.stringify(playersList));
+          }
+        }
+      }// Cierre de la función updateDescuento  que es la resta los valores en la card.
+
       // Inicio de la función clean, que se encarga de limpiar los datos despúes de un registro
       function clean(){
         vm.player = '';
         vm.property = '';
 
-      } // Cierre de la función clean
+      } // Cierre clean
 
-    }// Cierre de la función buyController
+    }// Cierre buyController
 })();

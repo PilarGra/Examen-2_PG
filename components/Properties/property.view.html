@@ -54,7 +54,7 @@
       <md-card-header>
         <md-card-header-text>
           <span class="md-title">{{property.name}}</span>
-          <span class="md-subhead">{{property.id}}</span>
+          <span class="md-subhead">Id: {{property.id}}</span>
         </md-card-header-text>
       </md-card-header>
 
@@ -62,17 +62,17 @@
         <md-card-title-text>
           <span class="md-subhead">Posición: {{property.position}}</span>
           <span class="md-subhead">Precio: {{property.price}}</span>
-          <span class="md-subhead">Grupo: {{property.group}}</span>
+          <span class="md-subhead">Renta: {{property.rent}}</span>
+          <span class="md-subhead">Grupo al que pertenece la propiedad: {{property.group}}</span>
           <span class="md-subhead">Dueño de la propiedad: {{property.ownedby}}</span>
           <span class="md-subhead">Hipoteca: {{property.mortgaged}}</span>
-          <span class="md-subhead">Probabilidad: {{property.averageProbability}}</span>
         </md-card-title-text>
 
       </md-card-title>
 
       <!-- Boton para cambiar el editar los jugadores -->
       <md-card-actions id="buttons">
-        <md-button class="edit" ng-click="vm.getInfo(property);vm.hideButton();registro1()">Editar</md-button>
+        <md-button class="edit" ng-click="vm.getInfo(property);vm.hideButton();vm.registro1()">Editar</md-button>
         <md-card-icon-actions> <!-- cierre botones  -->
           <!--fin de los cards -->
   </div>
