@@ -1,41 +1,31 @@
-<div>
-   <a href="#!/player" class="btn btn-info" role="button">Ver Jugadores</a>
-  <a href="#!/property" class="btn btn-info" role="button">Ver Propiedades</a>
-  <a href="#!/buy" class="btn btn-info" role="button">Comprar Propiedades</a>
-</div>
 <!--Inicio del menu jugador.(Pilar)-->
 <div class="wrapper">
     <div class="main-panel">
-      <nav class="navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-        </div>
-        <div class="collapse navbar-collapse"></div>
-      </nav>
-          <!-- Page Content -->
-
+    
 <!--Registrar jugadores, listar v y modificar jugadores en conjunto con impresión de los datos.(Pilar)-->
 <div class="container-fluid" ng-show="pagina==1">
-  <md-toolbar layout="row" layout-sm="column" layout-align="left center" layout-wrap class="md-whiteframe-1dp">
-    <div class="btn-group">
-     <md-button class="btn" type="button">Jugadores</md-button>
-     <md-button data-toggle="dropdown" class="btn dropdown-toggle" type="button"><span class="caret"></span></md-button>
-     <ul class="dropdown-menu">
-      <li><a ng-click="siguiente()">Ver jugadores registrados</a></li>
-       <li><a href="#!/players">Registrar jugadores</a></li>
-     </ul>
+  <div class="btn-group">
+    <a class="btn btn-info" ng-click="anterior()"><i class="fa fa-user fa-fw"></i>Jugadores</a>
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+    </a>
+    <ul class="dropdown-menu"> 
+      <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Ver jugadores registrados</a></li>
+      <li class="divider"></li>
+      <li><a href="#!/players"><i class="fa fa-pencil fa-fw"></i> Registrar jugadores</a></li>
+    </ul>
+  </div>
+
+   <div class="btn-group">
+      <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
     </div>
-  </md-toolbar>
+
+   <div class="btn-group">
+      <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-building-o"></i>Lista de propiedades</a>
+    </div>
 
   <section id="registerPlayer">
-    <h1>Registro de Jugador</h1>
+    <h1 class="text-center">Registro de Jugador</h1>
     <hr>
 
     <!--Creación del formulario para registro  -->
@@ -44,8 +34,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <md-input-container class="col-xs-12 col-sm-4 col-md-4 select2" layout="column">
-            <label for="">Código:</label>
-            <input type="text" ng-model="vm.code" name="code" required>
+            <label for="">Código de jugador:</label>
+            <input type="number" ng-model="vm.code" name="code" required>
             <div ng-messages="frmRegisterPlayer.code.$error">
               <div ng-messages-include="components/includes/messages.html"></div>
             </div><!--cierre del ng-messages -->
@@ -102,6 +92,25 @@
 </div>
 
 <div class=" col-md-12" ng-show="pagina==2">
+<div class="btn-group">
+    <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-user fa-fw"></i>Jugadores</a>
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+    </a>
+    <ul class="dropdown-menu"> 
+      <li><a ng-click="#!/players"><i class="fa fa-book fa-fw"></i> Ver jugadores registrados</a></li>
+      <li class="divider"></li>
+      <li><a href="anterior()"><i class="fa fa-pencil fa-fw"></i> Registrar jugadores</a></li>
+    </ul>
+  </div>
+
+   <div class="btn-group">
+      <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
+    </div>
+
+   <div class="btn-group">
+      <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-building-o"></i>Lista de propiedades</a>
+    </div>
 
 <h1>Jugadores registrados</h1>
 <hr>
@@ -128,7 +137,7 @@
         </md-card-header>
         <md-card-title>
           <md-card-title-text>
-              <span class="md-subhead">Nombre: {{player.namePlayer"}}</span>
+              <span class="md-subhead">Nombre: {{player.namePlayer}}</span>
               <span class="md-subhead">Apellido: {{player.firstName}}</span>
               <span class="md-subhead">Alias: {{player.alias}}</span>
               <span class="md-subhead">Cantidad de dinero inicial: 1.000 </span>
@@ -149,4 +158,12 @@
       <md-card-icon-actions><!-- cierre botones  -->
     </div>
   </div>
+  <section class="copyright">
+    <div class="col-md-12">
+      <div class="copyright">
+        <!-- COPYRIGHT TEXT -->
+        <p>©Pgranados - All rights reserved 2017.</p>
+      </div>
+    </div>
+  </section>
 </div>

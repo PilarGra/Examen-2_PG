@@ -4,7 +4,7 @@
     .controller('buyController',buyController);
     function buyController(buyService,$scope,playersService,propertyService){
 
-      var vm = this;
+     var vm = this;
 
       // Inicio de la función init que es la que se inicializa de primiera
       function init(){
@@ -38,7 +38,7 @@
          init();
          swal({
            type: 'success',
-           title: '¡Compra realizada!',
+           title: '¡Propiedad Vendida!',
            timer: 3000,
            showConfirmButton: false
          })
@@ -49,7 +49,7 @@
                init();
                swal({
                  type: 'success',
-                 title: '¡Compra realizada!',
+                 title: '¡Propiedad Vendida!',
                  timer: 3000,
                  showConfirmButton: false
                })
@@ -79,7 +79,7 @@
         } // Cierre de buyEdit
         swal({
          type: 'success',
-         title: '¡Información actualizada!',
+         title: '¡Propiedad modificada correctamente!',
          timer: 3000,
          showConfirmButton: false
         })
