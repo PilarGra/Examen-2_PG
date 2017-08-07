@@ -1,0 +1,192 @@
+/*@font-face{
+  font-family: "Roboto";
+  src: url(fonts/Roboto-Regular.ttf);
+}*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*Estilos del form*/
+section h1{
+  text-align: left;
+  color: #1C1C1C;
+}
+form .nav-tabs a, a:focus{
+  color: #eaa824;
+}
+form .nav-tabs a:hover, a:focus{
+  color: #eaa824;
+}
+form .input-group .btn-info{
+  background: #e67e22;
+  border: 2px solid;
+  border-radius: 50px;
+}
+
+/*Inicio estilos del buscador*/
+.inputSearch .search-form{
+  padding-top: 25px;
+}
+/*Fin estilos del buscador*/
+
+form .row{
+  margin-top: 30px;
+}
+section hr{
+  background: #dcdcdc;
+  height: 1px;
+}
+.table th{
+  text-align: center;
+}
+.table h1{
+  text-align: center;
+}
+/*Estilos de botones*/
+.buttonsFights{
+  border-radius: 15px;
+  background: #e67e22;
+  color: #fff;
+}
+.buttonFights{
+  border-radius: 15px;
+  background: #00cbfe;
+  color: #fff;
+}
+.button{
+  padding: 5px 15px;
+  background: #e67e22;
+  color: #fff;
+  margin-top: 25px;
+  font-size: 1em;
+  margin-bottom: 30px
+}
+.tabla{
+  border: none;
+}
+tbody td{
+  text-align: center;
+}
+.edit{
+  background:#6d3f96;
+  color: #fff;
+  border-radius: 8px;
+}
+.Active{
+  background:#e67e22;
+  color: #fff;
+  border-radius: 8px;
+}
+.atras{
+  padding:10px 15px;
+  background:#00cbfe;
+  color: #fff;
+  border-radius: 8px;
+}
+.siguiente{
+  padding: 10px 15px;
+  background:#fdc05d;
+  color: #fff;
+  border-radius: 8px;
+}
+#registrar .Active:hover{
+  background: #6d3f96; /*morado*/
+  color: #fff;
+}
+#actualizar .edit:hover{
+  background: #fdc05d; /*naranja*/
+  color: #fff;
+}
+#buttons .Active:hover{
+  background: #6d3f96; /*morado*/
+  color: #fff;
+}
+#buttons .edit:hover{
+  background: #fdc05d;/*naranja*/
+  color: #fff;
+}
+/*Fin de estilos de botones*/
+
+section{
+  font-family: helvetica;
+}
+.photoStudent{
+  height: 90px;
+  width: 152px;
+}
+.photoTeacherProfile{
+  height: 150px;
+  width: 150px;
+}
+.select{
+  padding-top: 24px;
+}
+.select2{
+  padding-top: 12px;
+}
+.check{
+  padding-top: 34px;
+}
+.buttonphoto{
+  padding: 12px 10px;
+  border-radius: 8px;
+  margin-top: 25px;
+  margin-bottom: 30px
+}
+label{
+  margin-left: 16px;
+}
+span{
+  display: block;
+}
+.failId{
+  color: #e67e22;
+  font-size:12px;
+}
+.Accepted{
+  color: #e67e22;
+  font-size:24px;
+  text-align: center;
+}
+#ModInfo span{
+  display: block;
+}
+#inputSearch{
+  margin-bottom: 30px;
+}
+.puntajes h2,h5{
+  text-align: center;
+  font-size: 16px;
+}
+/*Fin de los estilos del form*/
+.pull-right {
+float: right !important;
+}
+.navbar-collapse{
+line-height: 25px;
+}
+#title{
+  text-align: center;
+  line-height: 35px;
+}
+#title-text{
+  text-align: center;
+}
+#eventsTitle{
+  text-align: center;
+  line-height: 35px;
+  color: #e67e22;
+}
+#line-height{
+  text-align: justify;
+  line-height: 35px;
+}
+
+/*Estilos del mapa*/
+#mapa{
+  width:500px;
+  height: 500px;
+  border: 2px solid #000;
+}
+
+/*Estilos generales*/
+.displayNone{
+    display: none;
+}

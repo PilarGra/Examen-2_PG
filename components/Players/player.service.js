@@ -1,16 +1,43 @@
 (function(){
   angular
-  .module('fctApp')
+  .module('examApp')
   .service('playersService', playersService);
 
   // Inicio de función playersService
   function playersService(){
-    var players = [];
+    var players = [
+      {
+        code: 001,
+        name:'Goku',
+        alias: 'Kokkun',
+        money: 1500,
+        photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535279/goku_cqc9tb.png'
+      },
+      {
+        code: 002,
+        name:'Piccolo',
+        alias: 'PikOREO',
+        money: 1500,
+      photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535276/piccolo_ksxdec.png'
+      },
+      {
+        code: 003,
+        name:'Logan',
+        alias: 'Lovezno',
+        money: 1500,
+        photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535284/lobezno_o1vs9g.png'
+      },
+      {
+        code: 004,
+        name:'Bomberman',
+        alias: 'Don Pepe y los Globos',
+        money: 1500,
+        photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535282/donpepe_x9hksw.png'
+      }];
     var publicAPI = {
       setPlayers : _setPlayers,
       getPlayers : _getPlayers,
       updatePlayers : _updatePlayers,
-      updateState: _updateState
     }; // Cierre del publicAPI
     return publicAPI;
 
@@ -43,10 +70,10 @@
     }// Fin de la función updatePlayers
 
     //función que actualiza el estado
-      function _updateState(pPlayerList){
+      //function _updateState(pPlayerList){
 
-        localStorage.setItem('lsPlayersList', JSON.stringify(pPlayerList));
-      }//cierre función updateState
+       // localStorage.setItem('lsPlayersList', JSON.stringify(pPlayerList));
+     // }//cierre función updateState
 
   }// Fin de función playersService
 })();

@@ -1,0 +1,70 @@
+<div>
+  <a href="#!/player" class="btn btn-info" role="button">Ver Jugadores</a>
+  <a href="#!/property" class="btn btn-info" role="button">Ver Propiedades</a>
+  <a href="#!/buy" class="btn btn-info" role="button">Comprar Propiedades</a>
+</div>
+
+  <div class="main-panel">
+      <div class="container">
+
+          <!-- Inicio de la sección registerPropietary, que contiene el formulario del jugador, registrar, modificar y listar-->
+          <section id="registerProperty">
+
+            <h1 class="text-center">Propiedades</h1>
+            <hr>
+
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" ng-click="anterior()" href="">Propiedades disponibles</a></li>
+              <li><a data-toggle="tab" ng-click="siguiente()" href="">Propiedades vendidas</a></li>
+            </ul>
+        </div>
+
+            <!--Buscador de propiedades-->
+            <section class="inputSearch">
+              <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+                <form action="" class="search-form">
+                  <div class="form-group has-feedback">
+                    <label for="Buscar" class="sr-only">Buscar</label>
+                    <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <div class="col-xs-12">
+              <!--inicio de los cards -->
+                <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="property in vm.properties | filter:vm.nameFilter">
+                  <md-card-header>
+                    <md-card-header-text>
+                      <span class="md-title">{{property.name}}</span>
+                      <span class="md-subhead">{{property.id}}</span>
+                    </md-card-header-text>
+                  </md-card-header>
+
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-subhead">Posición: {{property.position}}</span>
+                      <span class="md-subhead">Precio: {{property.price}}</span>
+                      <span class="md-subhead">Grupo: {{property.group}}</span>
+                      <span class="md-subhead">Propiedad de: {{property.ownedby}}</span>
+                      <span class="md-subhead">Hipoteca: {{property.mortgaged}}</span>
+                      <span class="md-subhead">Probabilidad: {{property.averageProbability}}</span>
+                    </md-card-title-text>
+
+                  </md-card-title>
+
+                  <!-- Boton para cambiar el editar los jugadores -->
+                  <md-card-actions id="buttons">
+                    <md-button class="edit" ng-click="vm.getInfo(property);vm.hideButton();registro1()">Editar</md-button>
+                  <md-card-icon-actions> <!-- cierre botones  -->
+                <!--fin de los cards -->
+              </div>
+
+            <div class="container" ng-show="pagina==2">
+
+
+            
+            </div>
+      </div>
+  </div>

@@ -1,8 +1,15 @@
-propiedades = [
+(function(){
+  angular
+  .module('examApp')
+  .service('propertyService', propertyService);
+
+  // Inicio de función propertyService
+  function propertyService(){
+    var  property = [
     {
       "name": "Mediterranean Avenue",
       "id": "mediterraneanave",
-      "posistion": 2,
+      "position": 2,
       "price": 60,
       "rent": 2,
       "multpliedrent": [
@@ -31,7 +38,7 @@ propiedades = [
     {
       "name": "Baltic Avenue",
       "id": "balticave",
-      "posistion": 4,
+      "position": 4,
       "price": 60,
       "rent": 4,
       "multpliedrent": [
@@ -60,7 +67,7 @@ propiedades = [
     {
       "name": "Oriental Avenue",
       "id": "orientalave",
-      "posistion": 7,
+      "position": 7,
       "price": 100,
       "rent": 6,
       "multpliedrent": [
@@ -88,7 +95,7 @@ propiedades = [
     {
       "name": "Vermont Avenue",
       "id": "vermontave",
-      "posistion": 9,
+      "position": 9,
       "price": 100,
       "rent": 6,
       "multpliedrent": [
@@ -116,7 +123,7 @@ propiedades = [
     {
       "name": "Connecticut Avenue",
       "id": "connecticutave",
-      "posistion": 10,
+      "position": 10,
       "price": 120,
       "rent": 8,
       "multpliedrent": [
@@ -144,7 +151,7 @@ propiedades = [
     {
       "name": "St. Charles Place",
       "id": "stcharlesplace",
-      "posistion": 12,
+      "position": 12,
       "price": 140,
       "rent": 10,
       "multpliedrent": [
@@ -172,7 +179,7 @@ propiedades = [
     {
       "name": "States Avenue",
       "id": "statesave",
-      "posistion": 14,
+      "position": 14,
       "price": 140,
       "rent": 10,
       "multpliedrent": [
@@ -200,7 +207,7 @@ propiedades = [
     {
       "name": "Virginia Avenue",
       "id": "virginiaave",
-      "posistion": 15,
+      "position": 15,
       "price": 160,
       "rent": 12,
       "multpliedrent": [
@@ -228,7 +235,7 @@ propiedades = [
     {
       "name": "St. James Place",
       "id": "stjamesplace",
-      "posistion": 17,
+      "position": 17,
       "price": 180,
       "rent": 14,
       "multpliedrent": [
@@ -256,7 +263,7 @@ propiedades = [
     {
       "name": "Tennessee Avenue",
       "id": "tennesseeave",
-      "posistion": 19,
+      "position": 19,
       "price": 180,
       "rent": 14,
       "multpliedrent": [
@@ -284,7 +291,7 @@ propiedades = [
     {
       "name": "New York Avenue",
       "id": "newyorkave",
-      "posistion": 20,
+      "position": 20,
       "price": 200,
       "rent": 16,
       "multpliedrent": [
@@ -340,7 +347,7 @@ propiedades = [
     {
       "name": "Indiana Avenue",
       "id": "indianaave",
-      "posistion": 24,
+      "position": 24,
       "price": 220,
       "rent": 18,
       "multpliedrent": [
@@ -368,7 +375,7 @@ propiedades = [
     {
       "name": "Illinois Avenue",
       "id": "illinoisave",
-      "posistion": 25,
+      "position": 25,
       "price": 240,
       "rent": 20,
       "multpliedrent": [
@@ -396,7 +403,7 @@ propiedades = [
     {
       "name": "Atlantic Avenue",
       "id": "atlanticave",
-      "posistion": 27,
+      "position": 27,
       "price": 260,
       "rent": 22,
       "multpliedrent": [
@@ -424,7 +431,7 @@ propiedades = [
     {
       "name": "Ventnor Avenue",
       "id": "ventnorave",
-      "posistion": 28,
+      "position": 28,
       "price": 260,
       "rent": 22,
       "multpliedrent": [
@@ -452,7 +459,7 @@ propiedades = [
     {
       "name": "Marvin Gardens",
       "id": "marvingardens",
-      "posistion": 30,
+      "position": 30,
       "price": 280,
       "rent": 22,
       "multpliedrent": [
@@ -480,7 +487,7 @@ propiedades = [
     {
       "name": "Pacific Avenue",
       "id": "pacificave",
-      "posistion": 32,
+      "position": 32,
       "price": 300,
       "rent": 26,
       "multpliedrent": [
@@ -508,7 +515,7 @@ propiedades = [
     {
       "name": "North Carolina Avenue",
       "id": "northcarolinaave",
-      "posistion": 33,
+      "position": 33,
       "price": 300,
       "rent": 26,
       "multpliedrent": [
@@ -536,7 +543,7 @@ propiedades = [
     {
       "name": "Pennsylvania Avenue",
       "id": "pennsylvaniaave",
-      "posistion": 35,
+      "position": 35,
       "price": 320,
       "rent": 28,
       "multpliedrent": [
@@ -564,7 +571,7 @@ propiedades = [
     {
       "name": "Park Place",
       "id": "parkplace",
-      "posistion": 38,
+      "position": 38,
       "price": 350,
       "rent": 35,
       "multpliedrent": [
@@ -592,7 +599,7 @@ propiedades = [
     {
       "name": "Boardwalk",
       "id": "boardwalk",
-      "posistion": 40,
+      "position": 40,
       "price": 400,
       "rent": 50,
       "multpliedrent": [
@@ -620,7 +627,7 @@ propiedades = [
     {
       "name": "Electric Company",
       "id": "electriccompany",
-      "posistion": 13,
+      "position": 13,
       "price": 150,
       "group": "Utilities",
       "ownedby": -1,
@@ -637,7 +644,7 @@ propiedades = [
     {
       "name": "Water Works",
       "id": "waterworks",
-      "posistion": 29,
+      "position": 29,
       "price": 150,
       "group": "Utilities",
       "ownedby": -1,
@@ -654,7 +661,7 @@ propiedades = [
     {
       "name": "Reading Railroad",
       "id": "readingrailroad",
-      "posistion": 6,
+      "position": 6,
       "price": 200,
       "group": "Railroad",
       "ownedby": -1,
@@ -672,7 +679,7 @@ propiedades = [
     {
       "name": "Pennsylvania Railroad",
       "id": "pennsylvaniarailroad",
-      "posistion": 16,
+      "position": 16,
       "price": 200,
       "group": "Railroad",
       "ownedby": -1,
@@ -689,7 +696,7 @@ propiedades = [
     {
       "name": "B. & O. Railroad",
       "id": "borailroad",
-      "posistion": 26,
+      "position": 26,
       "price": 200,
       "group": "Railroad",
       "ownedby": -1,
@@ -700,7 +707,7 @@ propiedades = [
     {
       "name": "Short Line Railroad",
       "id": "shortlinerailroad",
-      "posistion": 36,
+      "position": 36,
       "price": 200,
       "group": "Railroad",
       "ownedby": -1,
@@ -708,36 +715,47 @@ propiedades = [
       "oprice": 200,
       "averageProbability": 2.3609500000000002
     }
-];
+  ];
 
-listaJugadores = [
-  {
-    id: 001,
-    name:'Goku',
-    alias: 'Kokkun',
-    money: 1500,
-    photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535279/goku_cqc9tb.png'
-  },
-  {
-    id: 002,
-    name:'Piccolo',
-    alias: 'PikOREO',
-    money: 1500,
-  photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535276/piccolo_ksxdec.png'
-  },
-  {
-    id: 003,
-    name:'Logan',
-    alias: 'Lovezno',
-    money: 1500,
-    photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535284/lobezno_o1vs9g.png'
-  },
-  {
-    
-    id: 004,
-    name:'Bomberman',
-    alias: 'Don Pepe y los Globos',
-    money: 1500,
-    photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535282/donpepe_x9hksw.png'
-  }
-]
+    var publicAPI = {
+      setProperty : _setProperty,
+      getProperty : _getProperty,
+      updateProperty : _updateProperty,
+    }; // Cierre del publicAPI
+    return publicAPI;
+
+    // Inicio de la funcion setProprietary, que se encarga de registar los datos en el localStorage
+    function _setProperty(pProperty){
+      var propertyList = _getProperty();
+      propertyList.push(pProperty);
+      localStorage.setItem('lsPropertyList', JSON.stringify(propertyList));
+    } // Cierre de la función setProprietary
+
+    // Inicio de la función getProprietary, que se encarga de obtener los datos más actualizados
+    function _getProperty(){
+      var propertyList = JSON.parse(localStorage.getItem('lsPropertyList'));
+
+      if(propertyList == null){
+        propertyList = property;
+      }
+       else{
+        propertyList = propertyList;
+
+      }// Cierre del if
+
+      return propertyList;
+    } // Cierre de la funcíon getProprietary
+
+    // Inicio de la función updateProprietary, que se encarga de permitir la edición de datos
+    function _updateProperty(pobjProperty){
+      var propertyList = _getProperty();
+      for(var i = 0; i < propertyList.length; i++){
+        if(propertyList[i].id == pobjProperty.id){
+          propertyList[i] = pobjProperty;
+        } // Cierre del if
+      } // Cierre del ciclo
+      localStorage.setItem('lsPropertyList', JSON.stringify(propertyList));
+    }// Fin de la función updateProprietary
+
+  }// Fin de función proprietaryService
+})();
