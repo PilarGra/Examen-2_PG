@@ -7,9 +7,12 @@ section h1{
   text-align: left;
   color: #efc2c2;
 }
-
+#main-tab{
+  margin-left: 25px;
+}
 form .input-group .btn-info{
   background: #efc2c2;
+  margin: 0px 0px 15px 20px;
 }
 .btn-group {
   margin-top: 25px;

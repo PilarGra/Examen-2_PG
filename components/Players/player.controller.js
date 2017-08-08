@@ -14,11 +14,11 @@
 
       $scope.pagina = 1;
         $scope.siguiente = function() {
-          $scope.pagina++;
+          $scope.pagina = 2;
         }
 
         $scope.anterior = function() {
-          $scope.pagina--;
+          $scope.pagina = 1;
         }
         $scope.registro1 = function() {
           $scope.pagina = 1;
@@ -38,9 +38,10 @@
       vm.save= function(){
         var newPlayer = {
           code: vm.code,
-          name: vm.name,
+          namePlayer: vm.namePlayer,
+          firstName: vm.firstName,
           alias: vm.alias,
-          money: Number(1000),
+          money: 1000,
           photo: vm.photo
         } // Cierre de newPlayer
       // Restringir los usuarios que se registran
@@ -50,7 +51,7 @@
          init();
          swal({
            type: 'success',
-           title: '¡Jugador Registrado!',
+           title: '¡Jugador Registrado Correctamente!',
            timer: 3000,
            showConfirmButton: false
        })
@@ -71,7 +72,7 @@
             init();
             swal({
              type: 'success',
-             title: '¡Registro completado!',
+             title: '¡Jugador Registrado Correctamente!',
              timer: 3000,
              showConfirmButton: false
           })
@@ -84,7 +85,8 @@
       // Inicio: de la función getInfo, que se encarga de obtener los datos
       vm.getInfo = function(pPlayer){
         vm.code = pPlayer.code;
-        vm.name = pPlayer.name;
+        vm.namePlayer = pPlayer.namePlayer;
+        vm.firstName = pPlayer.firstName;
         vm.alias = pPlayer.alias;
         vm.money = pPlayer.money;
         vm.photo = pPlayer.photo;
@@ -101,8 +103,10 @@
       document.querySelector('#registrar').classList.remove('displayNone');
       var playersEdit = {
         code: vm.code,
-        name: vm.name,
+        namePlayer: vm.namePlayer,
+        firstName: vm.firstName,
         alias: vm.alias,
+        money: 1000,
         photo: vm.photo
       } // Cierre de playersEdit
       swal({
@@ -111,7 +115,7 @@
        timer: 3000,
        showConfirmButton: false
       })
-      playersService.updateTeacher(playersEdit);
+      playersService.update(playersEdit);
       init();
       clean();
     } // Cierre Update
@@ -119,7 +123,8 @@
       // Inicio de la función clean
       function clean(){
        vm.code = '';
-       vm.name = '';
+       vm.namePlayer = '';
+       vm.firstName = '';
        vm.alias = '';
        vm.photo = '';
       } // Cierre Clean

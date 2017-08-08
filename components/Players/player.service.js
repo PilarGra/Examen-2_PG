@@ -5,35 +5,36 @@
 
   // Inicio de función playersService
   function playersService(){
-    var players = [
+    var player = [
       {
         code: 001,
-        name:'Goku',
+        namePlayer:'Goku',
         alias: 'Kokkun',
         money: 1500,
         photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535279/goku_cqc9tb.png'
       },
       {
         code: 002,
-        name:'Piccolo',
+        namePlayer:'Piccolo',
         alias: 'PikOREO',
         money: 1500,
-      photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535276/piccolo_ksxdec.png'
+        photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535276/piccolo_ksxdec.png'
       },
       {
         code: 003,
-        name:'Logan',
+        namePlayer:'Logan',
         alias: 'Lovezno',
         money: 1500,
         photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535284/lobezno_o1vs9g.png'
       },
       {
         code: 004,
-        name:'Bomberman',
+        namePlayer:'Bomberman',
         alias: 'Don Pepe y los Globos',
         money: 1500,
         photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535282/donpepe_x9hksw.png'
       }];
+      
     var publicAPI = {
       setPlayers : _setPlayers,
       getPlayers : _getPlayers,
@@ -53,7 +54,7 @@
     function _getPlayers(){
       var playersList = JSON.parse(localStorage.getItem('lsPlayersList'));
       if(playersList == null){
-        playersList = players;
+        playersList = player;
       } // Cierre del if
       return playersList;
     } // Cierre de la funcíon getPlayers
@@ -68,12 +69,6 @@
       } // Cierre del ciclo
       localStorage.setItem('lsPlayersList', JSON.stringify(playersList));
     }// Fin de la función updatePlayers
-
-    //función que actualiza el estado
-      //function _updateState(pPlayerList){
-
-       // localStorage.setItem('lsPlayersList', JSON.stringify(pPlayerList));
-     // }//cierre función updateState
 
   }// Fin de función playersService
 })();

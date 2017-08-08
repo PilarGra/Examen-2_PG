@@ -1,85 +1,108 @@
-<div class="main-panel">
-  <div class="container">
+<div class="wrapper">
+  <div class="main-panel">
+    <div id="main-tab">
+      <div class="btn-group">
+        <a class="btn btn-info" ng-click="anterior()"><i class="fa fa-building-o"></i> Ver propiedades</a>
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+          <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+        </a>
+        <ul class="dropdown-menu"> 
+          <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Disponibles</a></li>
+          <li class="divider"></li>
+          <li><a href="#!/properties"><i class="fa fa-pencil fa-fw"></i> Vendidas</a></li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-info" href="#!/players"><i class="fa fa-user fa-fw"></i>Jugadores</a>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-info" href="#!/propertiesBuy"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
+      </div> 
+    </div> <!-- Cierre del main-tab-->
+    <!-- Inicio de la sección registerPropietary, que contiene el formulario de la propiedad, registrar, modificar y listar-->
+    <div class="container-fluid" ng-show="pagina==1">
+      <section id="registerProperty">
+        <h1 class="text-center">Propiedades</h1>
+        <hr>
+        <!--Buscador de propiedades-->
+        <section class="inputSearch">
+          <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+            <form action="" class="search-form">
+              <div class="form-group has-feedback">
+                <label for="Buscar" class="sr-only">Buscar</label>
+                <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+          </div>
+        </section>
 
-    <!-- Inicio de la sección registerPropietary, que contiene el formulario del jugador, registrar, modificar y listar-->
-    <section id="registerProperty">
-            <!--<ul class="nav nav-tabs">
-              <li class="active">
-                <a data-toggle="tab" ng-click="siguiente()">Propiedades disponibles</a>
-              </li>
-              <li>
-                <a data-toggle="tab" href="#!/properties">Propiedades vendidas</a>
-              </li>
-            </ul>-->
-            <div class="btn-group">
-              <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-building-o"></i> Ver propiedades</a>
-              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-              </a>
-              <ul class="dropdown-menu"> 
-                <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Disponibles</a></li>
-                <li class="divider"></li>
-                <li><a href="#!/property"><i class="fa fa-pencil fa-fw"></i> Vendidas</a></li>
-              </ul>
-            </div>
-            <div class="btn-group">
-              <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-user fa-fw"></i>Jugadores</a>
-            </div>
-
-            <div class="btn-group">
-              <a class="btn btn-info" ng-click="siguiente()"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
-            </div>         
-
-            <h1 class="text-center">Propiedades</h1>
-            <hr>
-
-  </div>
-
-  <!--Buscador de propiedades-->
-  <section class="inputSearch">
-    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
-      <form action="" class="search-form">
-        <div class="form-group has-feedback">
-          <label for="Buscar" class="sr-only">Buscar</label>
-          <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
-          <span class="glyphicon glyphicon-search form-control-feedback"></span>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <div class="col-xs-12">
-    <!--inicio de los cards -->
-    <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="property in vm.properties | filter:vm.nameFilter">
-      <md-card-header>
-        <md-card-header-text>
-          <span class="md-title">{{property.name}}</span>
-          <span class="md-subhead">Id: {{property.id}}</span>
-        </md-card-header-text>
-      </md-card-header>
-
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-subhead">Posición: {{property.position}}</span>
-          <span class="md-subhead">Precio: {{property.price}}</span>
-          <span class="md-subhead">Renta: {{property.rent}}</span>
-          <span class="md-subhead">Grupo al que pertenece la propiedad: {{property.group}}</span>
-          <span class="md-subhead">Dueño de la propiedad: {{property.ownedby}}</span>
-          <span class="md-subhead">Hipoteca: {{property.mortgaged}}</span>
-        </md-card-title-text>
-
-      </md-card-title>
-
-      <!-- Boton para cambiar el editar los jugadores -->
-      <md-card-actions id="buttons">
-        <md-button class="edit" ng-click="vm.getInfo(property);vm.hideButton();vm.registro1()">Editar</md-button>
-        <md-card-icon-actions> <!-- cierre botones  -->
-          <!--fin de los cards -->
-  </div>
-
+        <div class="col-xs-12">
+          <!--inicio de los cards -->
+          <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="property in vm.properties | filter:vm.nameFilter">
+            <md-card-header>
+              <md-card-header-text>
+                <span class="md-title">{{property.name}}</span>
+                <span class="md-subhead">Id: {{property.id}}</span>
+              </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-subhead">Posición: {{property.position}}</span>
+                <span class="md-subhead">Precio: {{property.price}}</span>
+                <span class="md-subhead">Renta: {{property.rent}}</span>
+                <span class="md-subhead">Grupo al que pertenece la propiedad: {{property.group}}</span>
+                <span class="md-subhead">Dueño de la propiedad: {{property.ownedby}}</span>
+                <span class="md-subhead">Costo de casa: {{property.housecost}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <!-- Boton para cambiar el editar las propiedades -->
+            <md-card-actions id="buttons">
+              <md-button class="edit" href="#!/propertiesBuy">Comprar</md-button>
+            <md-card-icon-actions> <!-- cierre botones  -->
+        </div><!--fin de los cards -->
+    </div><!--Cierre de pagina1-->
+  </div><!--Cierre del main panel-->
   <div class="container" ng-show="pagina==2">
+    <!--Buscador de propiedades-->
+    <section class="inputSearch">
+      <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+        <form action="" class="search-form">
+          <div class="form-group has-feedback">
+            <label for="Buscar" class="sr-only">Buscar</label>
+            <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+          </div>
+        </form>
+      </div>
+    </section>
 
-  </div>
+    <div class="col-xs-12">
+      <!--inicio de los cards -->
+      <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="property in vm.properties | filter:vm.nameFilter">
+        <md-card-header>
+          <md-card-header-text>
+            <span class="md-title">{{property.name}}</span>
+            <span class="md-subhead">Id: {{property.id}}</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-subhead">Posición: {{property.position}}</span>
+            <span class="md-subhead">Precio: {{property.price}}</span>
+            <span class="md-subhead">Renta: {{property.rent}}</span>
+            <span class="md-subhead">Grupo al que pertenece la propiedad: {{property.group}}</span>
+            <span class="md-subhead">Dueño de la propiedad: {{property.ownedby}}</span>
+            <span class="md-subhead">Hipoteca: {{property.mortgaged}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <!-- Boton para cambiar el editar las propiedades -->
+        <md-card-actions id="buttons">
+          <md-button class="edit" ng-click="vm.getInfo(property);vm.hideButton();vm.registro1()">Editar</md-button>
+        <md-card-icon-actions> <!-- cierre botones  -->
+    </div><!--fin de los cards -->
+  </div><!--Cierre de pagina2-->
+
   <section class="copyright">
     <div class="col-md-12">
       <div class="copyright">
@@ -88,5 +111,5 @@
       </div>
     </div>
   </section>
-</div>
+</div><!--cierre de wrapper-->
       
