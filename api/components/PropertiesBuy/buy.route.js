@@ -1,119 +1,27 @@
-<div class="wrapper">
-  <div class="main-panel">
-    <div id="main-tab"> 
-      <div class="btn-group">
-        <a class="btn btn-info" ng-click="anterior()"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
-        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-          <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-        </a>
-        <ul class="dropdown-menu"> 
-          <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Comprar propiedad</a></li>
-          <li class="divider"></li>
-          <li><a href="#!/properties"><i class="fa fa-pencil fa-fw"></i> Ver propiedades compradas</a></li>
-        </ul>
-      </div>
-      <div class="btn-group">
-        <a class="btn btn-info" href="#!/players"><i class="fa fa-user fa-fw"></i>Jugadores</a>
-      </div>
-      <div class="btn-group">
-        <a class="btn btn-info" href="#!/properties"><i class="fa fa-building-o"></i>Propiedades</a>
-      </div>
-    </div><!-- Cierre main-tab -->
-    <!-- Inicio de la sección registerBuy, que contiene el formulario del jugador, registrar, modificar y listar-->
-    <div class="container-fluid" ng-show="pagina==1">
-      <section id="registerBuy">
-        <h1 class="text-center">Compra de propiedades</h1>
-        <hr>
-          <!-- Inicio del formulario -->
-          <form name="frmRegisterBuy" novalidate autocomplete="off">
-            <!--Inicio de los inpust para el formulario  -->
-            <div class="row">
-              <md-input-container class="col-xs-12 col-sm-12 col-md-12" layout="column">
-                <label for="">Seleccione el jugador que compra la propiedad:</label>
-                <input type="text" list="playerList" ng-model="vm.player" name="player" required>
-                <datalist id="playerList">
-                  <option value="">Seleccione un jugador</option>
-                  <option ng-repeat="player in vm.playerRel" value="{{player.name}}">{{vm.player.name}}</option>
-                </datalist>
-                <div ng-messages="frmRegisterBuy.player.$error">
-                  <div ng-messages-include="components/includes/messages.html"></div>
-                </div> <!--cierre del ng-messages -->
-              </md-input-container>
+var express = require('express');
+var router = express.Router();
+var buyController = require('./buy.controller.js');
 
-              <md-input-container class="col-xs-12 col-sm-12 col-md-12" layout="column">
-                <label for="">Seleccione la propiedad a comprar:</label>
-                <input type="text" list="propertyList" ng-model="vm.property" name="property" required>
-                <datalist id="propertyList">
-                  <option value="">Seleccione propiedad</option>
-                  <option ng-repeat="property in vm.propertyRel" value="{{property.name}}">{{vm.property.name}}</option>
-                </datalist>
-                <div ng-messages="frmRegisterBuy.property.$error">
-                  <div ng-messages-include="components/includes/messages.html"></div>
-                </div> <!--cierre del ng-messages -->
-              </md-input-container>
+//para aquellas rutas que ocupen un id
 
-              <div class="col-xs-12">
-                <div id="registrar">
-                  <md-button class="button Active" type="submit" ng-click="vm.save();vm.DiscountPrice()" ng-disabled="frmRegisterBuy.$invalid">Confirmar venta de propiedad</md-button>
-                </div>
+router.param('id', function(req, res, next, id){
+  req.body.id = id;
+  next();
+});
 
-                <div class="displayNone" id="actualizar">
-                  <md-button class="button edit" type="button" ng-disabled="frmRegisterBuy.$invalid" ng-click="vm.update(buy);siguiente()">Actualizar</md-button>
-                </div>
-              </div>
-            </div><!--cierre del row-->
-          </form> <!-- Cierre del formulario del registerBuy  -->
-      </section> <!-- Cierre de la sección registerBuy -->
-    </div><!--cierre de pagina1-->
+router.route('/save_properties_buy')
+  .post(function(req,res){
+    buyController.save(req,res);
 
-    <div class="container" ng-show="pagina==2">
-      <h1>Propiedades compradas</h1>
-      <hr>
-      <!--Buscador de jugadores-->
-      <section class="inputSearch">
-        <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
-          <form action="" class="search-form">
-            <div class="form-group has-feedback">
-              <label for="Buscar" class="sr-only">Buscar</label>
-              <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
-              <span class="glyphicon glyphicon-search form-control-feedback"></span>
-            </div>
-          </form>
-        </div>
-      </section>
+  });
+router.route('/get_all_properties_buy')
+  .get(function(req,res){
+    buyController.findAll(req,res);
+  });
 
-      <div class="col-xs-12">
-       <!--inicio de los cards -->
-        <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="buy in vm.buy | filter:vm.nameFilter">
-          <md-card-header>
-            <md-card-header-text>
-              <span class="md-title">{{buy.player}}</span>
-              <span class="md-subhead">{{buy.property}}</span>
-            </md-card-header-text>
-          </md-card-header>
+ router.route('/update_properties_buy')
+  .put(function(req, res){
+    buyController.update(req,res);
+  });
 
-          <md-card-title>
-            <md-card-title-text>
-            </md-card-title-text>
-            <md-card-title-media>
-              <div class="md-media-md card-media">
-              </div>
-            </md-card-title-media>
-          </md-card-title>
-
-          <!-- Boton para cambiar el editar los jugadores -->
-          <md-card-actions id="buttons">
-            <md-button class="edit" ng-click="vm.getInfo(buy);vm.hideButton();registro1()">Editar</md-button>
-          <md-card-icon-actions> <!-- cierre botones  -->
-      </div> <!--fin de los cards -->
-    </div> <!--Cierre pagina2 -->
-    <section class="copyright">
-      <div class="col-md-12">
-        <div class="copyright">
-          <!-- COPYRIGHT TEXT -->
-          <p>©Pgranados - All rights reserved 2017.</p>
-        </div>
-      </div>
-    </section>
-  </div><!-- cierre main-panel-->
-</div><!--cierre de wrapper-->
+module.exports = router;
