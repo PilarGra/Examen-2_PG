@@ -5,7 +5,7 @@
 
   // Inicio de función propertyService
   function propertyService(){
-    var  property = [
+    var  properties = [
     {
       "name": "Mediterranean Avenue",
       "id": "mediterraneanave",
@@ -726,35 +726,18 @@
 
     // Inicio de la funcion setProprietary, que se encarga de registar los datos en el localStorage
     function _setProperty(pProperty){
-      var propertyList = _getProperty();
-      propertyList.push(pProperty);
-      localStorage.setItem('lsPropertyList', JSON.stringify(propertyList));
+      return $http.post('http://localhost:3000/api/save_property',pProperty)
     } // Cierre de la función setProprietary
 
     // Inicio de la función getProprietary, que se encarga de obtener los datos más actualizados
     function _getProperty(){
-      var propertyList = JSON.parse(localStorage.getItem('lsPropertyList'));
-
-      if(propertyList == null){
-        propertyList = property;
-      }
-       else{
-        propertyList = propertyList;
-
-      }// Cierre del if
-
-      return propertyList;
+      return $http.get('http://localhost:3000/api/get_all_properties');
     } // Cierre de la funcíon getProprietary
 
     // Inicio de la función updateProprietary, que se encarga de permitir la edición de datos
-    function _updateProperty(pobjProperty){
-      var propertyList = _getProperty();
-      for(var i = 0; i < propertyList.length; i++){
-        if(propertyList[i].id == pobjProperty.id){
-          propertyList[i] = pobjProperty;
-        } // Cierre del if
-      } // Cierre del ciclo
-      localStorage.setItem('lsPropertyList', JSON.stringify(propertyList));
+    function _updateProperty(pProperty){
+      console.log(pProperty);
+        return $http.put('http://localhost:3000/api/update_properties',pProperty);
     }// Fin de la función updateProprietary
 
   }// Fin de función proprietaryService
