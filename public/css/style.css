@@ -7,9 +7,16 @@ section h1{
   font-family: Chewy;
 }
 .container h1{
+  font-size: 20px; 
   text-align: center;
   color: #efc2c2;
   font-family: Chewy;
+}
+.container-fluid{
+  border: 2px solid #efc2c2;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px; 
 }
 #main-tab{
   margin-left: 25px;
@@ -17,6 +24,10 @@ section h1{
 form .input-group .btn-info{
   background: #efc2c2;
   margin: 0px 0px 15px 20px;
+  padding: 10px 20px;
+}
+form .input-group .btn-info:hover{
+  background: #c2c2ef;
 }
 .btn-group {
   margin-top: 25px;
@@ -48,8 +59,13 @@ section hr{
   color: #fff;
   border-radius: 8px;
 }
-#registrar .Active:hover{
+#registrar .Active{
   background: #efc2c2; /*rosa*/
+  color: #fff;
+  padding: 5px 40px; 
+}
+#registrar .Active:hover{
+  background: #c2c2ef; /*lila*/
   color: #fff;
 }
 #actualizar .edit:hover{
@@ -58,6 +74,7 @@ section hr{
 }
 #buttons {
    padding: 5px 20px;
+   border-radius: 35px;
 }
 #buttons .Active:hover{
   background: #efc2c2; /*rosa*/
