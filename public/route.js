@@ -15,7 +15,7 @@
       templateUrl: './components/players/player.view.html',
       resolve: {
         load: ['$ocLazyLoad', function($ocLazyLoad){
-          return $ocLazyLoad.load('./components/players/player.controller.js')
+          return $ocLazyLoad.load('./components/players/players.controller.js')
         }]
       },
       controller: 'playersController',

@@ -6,6 +6,7 @@ var PlayerSchema = new mongoose.Schema({
   namePlayer: String,
   firstName: String,
   alias: String,
+  money: Number,
   photo: String
 });
  

@@ -4,7 +4,7 @@
   .service('propertyService', propertyService);
 
   // Inicio de función propertyService
-  function propertyService(){
+  function propertyService($http){
     var  properties = [
     {
       "name": "Mediterranean Avenue",

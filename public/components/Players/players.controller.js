@@ -2,15 +2,22 @@
   angular
     .module('examApp')
     .controller('playersController', playersController);
-    function playersController(playersService,ImageService,Upload,$scope){
+    playersController.$inject = ['playersService','$scope','ImageService','Upload'];
+    
+    function playersController(playersService,$scope,ImageService,Upload){
 
       var vm = this;
-      vm.cloudObj = ImageService.getConfiguration();
+      vm.players = "";
+      init();
 
       // Inicio de la función init 
       function init(){
-        vm.players = playersService.getPlayers();
-      }init(); // Cierre de la función init
+        playersService.getPlayers().then(function (response) {
+            vm.players = response.data;
+          });
+
+        vm.cloudObj = ImageService.getConfiguration();
+      }
 
       $scope.pagina = 1;
         $scope.siguiente = function() {
@@ -84,6 +91,7 @@
 
       // Inicio: de la función getInfo, que se encarga de obtener los datos
       vm.getInfo = function(pPlayer){
+        vm.id = pPlayer._id;
         vm.code = pPlayer.code;
         vm.namePlayer = pPlayer.namePlayer;
         vm.firstName = pPlayer.firstName;
@@ -102,6 +110,7 @@
       document.querySelector('#actualizar').classList.add('displayNone');
       document.querySelector('#registrar').classList.remove('displayNone');
       var playersEdit = {
+        _id : vm.id,
         code: vm.code,
         namePlayer: vm.namePlayer,
         firstName: vm.firstName,
@@ -114,8 +123,24 @@
        title: '¡Información de jugador actualizada!',
        timer: 3000,
        showConfirmButton: false
-      })
-      playersService.update(playersEdit);
+      }).then(
+          function () {},
+          // handling the promise rejection
+          function (dismiss) {
+            if (dismiss === 'timer') {
+              console.log('Información actualizada')
+            }
+          }
+        )
+      playersService.updatePlayers(playersEdit).then(function(response){
+        playersService.getPlayers()
+          .then(function(response){
+            vm.players = response.data;
+          })
+          .catch(function(err){
+            console.log(err);
+          })
+        });
       init();
       clean();
     } // Cierre Update
@@ -126,6 +151,7 @@
        vm.namePlayer = '';
        vm.firstName = '';
        vm.alias = '';
+       vm.money = '';
        vm.photo = '';
       } // Cierre Clean
 

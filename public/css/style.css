@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy');
 /*Estilos del form*/
-/*body{
-background-color: #b6b6b6;
-}*/
+/*body*/
 section h1{
   text-align: left;
   color: #efc2c2;
+  font-family: Chewy;
+}
+.container h1{
+  text-align: center;
+  color: #efc2c2;
+  font-family: Chewy;
 }
 #main-tab{
   margin-left: 25px;
@@ -37,30 +41,30 @@ section hr{
   height: 1px;
 }
 .edit{
+  padding: 5px 30px;
   background:#efc2c2;
+  font-size: 20px;
+  font-family: Chewy;
   color: #fff;
   border-radius: 8px;
 }
-.Active{
-  background:#efc2c2;
-  color: #fff;
-  border-radius: 8px;
-}
-
 #registrar .Active:hover{
-  background: #efc2c2; /*morado*/
+  background: #efc2c2; /*rosa*/
   color: #fff;
 }
 #actualizar .edit:hover{
-  background: #fdc05d; /*naranja*/
+  background: #c2c2ef; /*lila*/
   color: #fff;
 }
+#buttons {
+   padding: 5px 20px;
+}
 #buttons .Active:hover{
-  background: #efc2c2; /*morado*/
+  background: #efc2c2; /*rosa*/
   color: #fff;
 }
 #buttons .edit:hover{
-  background: #fdc05d;/*naranja*/
+  background: #c2c2ef;/*lila*/
   color: #fff;
 }
 /*Fin de estilos de botones*/

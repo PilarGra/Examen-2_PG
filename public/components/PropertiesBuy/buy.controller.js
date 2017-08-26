@@ -2,6 +2,8 @@
   angular
     .module('examApp')
     .controller('buyController',buyController);
+    buyController.$inject = ['buyService','$scope','playersService','propertyService'];
+    
     function buyController(buyService,$scope,playersService,propertyService){
 
      var vm = this;

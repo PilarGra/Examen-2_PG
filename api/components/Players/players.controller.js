@@ -1,4 +1,4 @@
-var Player = require('./player.route.js.model.js');
+var Player = require('./player.model.js');
 
 module.exports.save = function(req, res){
   var newPlayer = new Player({
@@ -6,6 +6,7 @@ module.exports.save = function(req, res){
     namePlayer: req.body.namePlayer,
     firstName: req.body.firstName,
     alias: req.body.alias,
+    money: req.body.money,
     photo: req.body.photo
   });
 

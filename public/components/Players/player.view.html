@@ -106,7 +106,7 @@
       </section><!--cierre de inputSearch-->
 
       <div class="col-xs-12">
-        <md-card class="container-fluid col-md-6" ng-repeat="player in vm.players
+        <md-card class="container-fluid col-md-5" ng-repeat="player in vm.players
         | filter:vm.nameFilter"><!--Impresión de los datos-->
           <md-card-header>
             <md-card-header-text>
@@ -129,11 +129,9 @@
             </md-card-title-media>
           </md-card-title>
           <!-- Boton para cambiar el editar las jugador -->
-          <md-card-actions id="buttons" >
+          <md-card-actions id="buttons" > <center>
             <md-button class="edit" ng-click="vm.getInfo(player);vm.hideButton();registro1()">Editar</md-button>
-            <md-button class="Active" ng-click="vm.active(player)">Activo</md-button>
-            <!-- <md-button class="edit" ng-click="vm.inactive(player)">Inactivo</md-button>
-            <md-card-icon-actions><!cierre botones  -->
+            <md-card-icon-actions><!--cierre botones  -->
       </div><!-- cierre card  -->
     </div><!--cierre de pagina2-->
 
