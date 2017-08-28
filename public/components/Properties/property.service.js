@@ -5,32 +5,32 @@
 
   // Inicio de función propertyService
   function propertyService($http){
-    var  properties = [
+    var properties = [
     {
       "name": "Mediterranean Avenue",
       "id": "mediterraneanave",
       "position": 2,
       "price": 60,
       "rent": 2,
-      "multpliedrent": [
-        10,
-        30,
-        90,
-        160,
-        250
-      ],
+        "multpliedrent": [
+          10,
+          30,
+          90,
+          160,
+          250
+        ],
       "housecost": 50,
       "group": "Purple",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
       "probability": 2.1314,
-      "rel": {
-        "Square": "Mediterranean Avenue",
-        "Probability % (Jail Short)": 2.1314,
-        "Rank": 36,
-        "Probability % (Jail Long)": 2.0073
-      },
+        "rel": {
+          "Square": "Mediterranean Avenue",
+          "Probability % (Jail Short)": 2.1314,
+          "Rank": 36,
+          "Probability % (Jail Long)": 2.0073
+        },
       "ohousecost": 50,
       "oprice": 60,
       "averageProbability": 2.06935
@@ -41,25 +41,25 @@
       "position": 4,
       "price": 60,
       "rent": 4,
-      "multpliedrent": [
-        20,
-        60,
-        180,
-        320,
-        450
-      ],
+        "multpliedrent": [
+          20,
+          60,
+          180,
+          320,
+          450
+        ],
       "housecost": 50,
       "group": "Purple",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
       "probability": 2.1624,
-      "rel": {
-        "Square": "Baltic Avenue",
-        "Probability % (Jail Short)": 2.1624,
-        "Rank": 35,
-        "Probability % (Jail Long)": 2.0369
-      },
+        "rel": {
+          "Square": "Baltic Avenue",
+          "Probability % (Jail Short)": 2.1624,
+          "Rank": 35,
+          "Probability % (Jail Long)": 2.0369
+        },
       "ohousecost": 50,
       "oprice": 60,
       "averageProbability": 2.09965
@@ -70,24 +70,24 @@
       "position": 7,
       "price": 100,
       "rent": 6,
-      "multpliedrent": [
-        30,
-        90,
-        270,
-        400,
-        550
-      ],
+        "multpliedrent": [
+          30,
+          90,
+          270,
+          400,
+          550
+        ],
       "housecost": 50,
       "group": "lightgreen",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
-      "rel": {
-        "Square": "Oriental Avenue",
-        "Probability % (Jail Short)": 2.2621,
-        "Rank": 32,
-        "Probability % (Jail Long)": 2.1317
-      },
+        "rel": {
+          "Square": "Oriental Avenue",
+          "Probability % (Jail Short)": 2.2621,
+          "Rank": 32,
+          "Probability % (Jail Long)": 2.1317
+        },
       "ohousecost": 50,
       "oprice": 100,
       "averageProbability": 2.1969000000000003
@@ -98,24 +98,24 @@
       "position": 9,
       "price": 100,
       "rent": 6,
-      "multpliedrent": [
-        30,
-        90,
-        270,
-        400,
-        550
-      ],
+        "multpliedrent": [
+          30,
+          90,
+          270,
+          400,
+          550
+        ],
       "housecost": 50,
       "group": "lightgreen",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
-      "rel": {
-        "Square": "Vermont Avenue",
-        "Probability % (Jail Short)": 2.321,
-        "Rank": 28,
-        "Probability % (Jail Long)": 2.1874
-      },
+        "rel": {
+          "Square": "Vermont Avenue",
+          "Probability % (Jail Short)": 2.321,
+          "Rank": 28,
+          "Probability % (Jail Long)": 2.1874
+        },
       "ohousecost": 50,
       "oprice": 100,
       "averageProbability": 2.2542
@@ -126,24 +126,24 @@
       "position": 10,
       "price": 120,
       "rent": 8,
-      "multpliedrent": [
-        40,
-        100,
-        300,
-        450,
-        600
-      ],
+        "multpliedrent": [
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
       "housecost": 50,
       "group": "lightgreen",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
-      "rel": {
-        "Square": "Connecticut Avenue",
-        "Probability % (Jail Short)": 2.3003,
-        "Rank": 30,
-        "Probability % (Jail Long)": 2.168
-      },
+        "rel": {
+          "Square": "Connecticut Avenue",
+          "Probability % (Jail Short)": 2.3003,
+          "Rank": 30,
+          "Probability % (Jail Long)": 2.168
+        },
       "ohousecost": 50,
       "oprice": 120,
       "averageProbability": 2.23415
@@ -153,25 +153,25 @@
       "id": "stcharlesplace",
       "position": 12,
       "price": 140,
-      "rent": 10,
-      "multpliedrent": [
-        50,
-        150,
-        450,
-        625,
-        750
-      ],
+        "rent": 10,
+        "multpliedrent": [
+          50,
+          150,
+          450,
+          625,
+          750
+        ],
       "housecost": 100,
       "group": "Violet",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
-      "rel": {
-        "Square": "St. Charles Place",
-        "Probability % (Jail Short)": 2.7017,
-        "Rank": 15,
-        "Probability % (Jail Long)": 2.556
-      },
+        "rel": {
+          "Square": "St. Charles Place",
+          "Probability % (Jail Short)": 2.7017,
+          "Rank": 15,
+          "Probability % (Jail Long)": 2.556
+        },
       "ohousecost": 100,
       "oprice": 140,
       "averageProbability": 2.62885
@@ -182,24 +182,24 @@
       "position": 14,
       "price": 140,
       "rent": 10,
-      "multpliedrent": [
-        50,
-        150,
-        450,
-        625,
-        750
-      ],
+        "multpliedrent": [
+          50,
+          150,
+          450,
+          625,
+          750
+        ],
       "housecost": 100,
       "group": "Violet",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
-      "rel": {
-        "Square": "States Avenue",
-        "Probability % (Jail Short)": 2.3721,
-        "Rank": 29,
-        "Probability % (Jail Long)": 2.1741
-      },
+        "rel": {
+          "Square": "States Avenue",
+          "Probability % (Jail Short)": 2.3721,
+          "Rank": 29,
+          "Probability % (Jail Long)": 2.1741
+        },
       "ohousecost": 100,
       "oprice": 140,
       "averageProbability": 2.2731000000000003
@@ -210,24 +210,24 @@
       "position": 15,
       "price": 160,
       "rent": 12,
-      "multpliedrent": [
-        60,
-        180,
-        500,
-        700,
-        900
-      ],
+        "multpliedrent": [
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
       "housecost": 100,
       "group": "Violet",
       "ownedby": -1,
       "buildings": 0,
       "mortgaged": false,
-      "rel": {
-        "Square": "Virginia Avenue",
-        "Probability % (Jail Short)": 2.4649,
-        "Rank": 22,
-        "Probability % (Jail Long)": 2.4255
-      },
+        "rel": {
+          "Square": "Virginia Avenue",
+          "Probability % (Jail Short)": 2.4649,
+          "Rank": 22,
+          "Probability % (Jail Long)": 2.4255
+        },
       "ohousecost": 100,
       "oprice": 160,
       "averageProbability": 2.4452
@@ -720,7 +720,7 @@
     var publicAPI = {
       setProperty : _setProperty,
       getProperty : _getProperty,
-      updateProperty : _updateProperty,
+      updateProperty : _updateProperty
     }; // Cierre del publicAPI
     return publicAPI;
 

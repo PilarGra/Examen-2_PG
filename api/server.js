@@ -10,6 +10,8 @@ var express = require('express'),
 var db = mongoose.connection,
     dburl = 'mongodb://PiliGra:Pgrana45@ds159013.mlab.com:59013/examen2db',
     port = 3000;
+   // server = app.listen(port,_server()),
+  //  io = require('socket.io').listen(server);
 // se le indica al servidor la tarea a ejecutar
 var server = app.listen(port,_server());
 
@@ -19,7 +21,15 @@ mongoose.connect(dburl);
 db.on('error', console.error.bind(console, 'Error de conexión:'));
 db.on('open', function(){
   console.log('Base de datos conectada correctamente');
-})
+});
+
+//io.sockets.on('connection', function (socket) {
+//  socket.emit('news', { msg: 'Hello client - from : server'});
+//  socket.on('echo', function (data) {
+//    console.log(data);
+//  });
+//});
+
 // Por medio de express se genera la conexión entre el index.js, server.js y el front-end
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -36,6 +46,14 @@ app.use( function(req, res, next){
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
+//Socket.io
+//app.use(function(req,res,next){
+    // req
+//    res.io = io;
+//    next();
+//});
+
 // Se definen las rutas que van estar ligadas a toda la funcionalidad de la aplicacion
 var index = require('./index'),
     playersRoutes = require('./components/players/player.route'),

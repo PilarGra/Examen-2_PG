@@ -2,12 +2,8 @@ var PropertyBuy = require('./buy.model.js');
 
 module.exports.save = function(req, res){
   var newPropertyBuy = new PropertyBuy({
-    position: req.body.position,
-    price: req.body.price,
-    rent: req.body.rent,
-    group: req.body.group,
-    ownedby: req.body.ownedby,
-    housecost: req.body.housecost
+    player: req.body.player,
+    property: req.body.property
   });
 
   newPropertyBuy.save(function(err){

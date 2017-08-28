@@ -7,13 +7,23 @@
     function buyController(buyService,$scope,playersService,propertyService){
 
      var vm = this;
+     vm.buy  = '';
+     init();
 
       // Inicio de la función init que es la que se inicializa de primiera
       function init(){
-        vm.buy = buyService.getBuy();
-        vm.playerRel = playersService.getPlayers();
-        vm.propertyRel = propertyService.getProperty();
-      }init(); // Cierre de la función init
+        buyService.getBuy().then(function(response){
+          vm.buy = response.data;
+        });
+
+        playersService.getPlayers().then(function(response){
+          vm.playerRel = response.data;
+        });
+
+        propertyService.getProperty().then(function(response){
+          vm.propertyRel = response.data;
+        });
+      } // Cierre de la función init
 
       // Encargada de mostrar la información al usuario
       $scope.pagina = 1;
@@ -34,8 +44,8 @@
           property: vm.property
         } // Cierre de newBuy
 
-      if(vm.buy.length === 0){
-         buyService.setBuy(newBuy);
+      if(vm.property.length === 0){
+         propertyService.setBuy(newBuy);
          clean();
          init();
          swal({
@@ -43,24 +53,43 @@
            title: '¡Propiedad Vendida!',
            timer: 3000,
            showConfirmButton: false
-         })
+         }).then(
+            function () {},
+            // handling the promise rejection
+             function (dismiss) {
+              if (dismiss === 'timer') {
+                console.log('Compa exitosa')
+              }
+             }
+           )
          return;
       } else{
-               buyService.setBuy(newBuy);
-               clean();
-               init();
+          buyService.setBuy(newBuy).then(function (response) {
+            vm.player = null;
+            vm.property = null;
+          init();
+          });
                swal({
                  type: 'success',
                  title: '¡Propiedad Vendida!',
                  timer: 3000,
                  showConfirmButton: false
-               })
+                }).then(
+                  function () {},
+                  // handling the promise rejection
+                  function (dismiss) {
+                    if (dismiss === 'timer') {
+                    console.log('Registro exitoso')
+                    }
+                  }
+                )
                return;
             }
       } // Cierre de la función save
 
       // Inicio: de la función getInfo, que se encarga de obtener los datos
       vm.getInfo = function(pBuy){
+        vm.id = pBuy._id;
         vm.player = pBuy.player;
         vm.property = pBuy.property;
       } // Cierre de la función getInfo
@@ -76,20 +105,36 @@
         document.querySelector('#actualizar').classList.add('displayNone');
         document.querySelector('#registrar').classList.remove('displayNone');
         var buyEdit = {
+          _id: vm.id,
           player: vm.player,
-          property: vm.property
+          property: vm.property,
         } // Cierre de buyEdit
         swal({
          type: 'success',
          title: '¡Propiedad modificada correctamente!',
          timer: 3000,
          showConfirmButton: false
-        })
-        buyService.updateBuy(buyEdit);
-        init();
-        clean();
+         }).then(
+             function () {},
+             // handling the promise rejection
+             function (dismiss) {
+               if (dismiss === 'timer') {
+                 console.log('Información actualizada')
+               }
+             }
+           )
+        buyService.updateBuy(buyEdit).then(function(response){
+          buyService.getProperty()
+            .then(function(response){
+              vm.property = response.data;
+            })
+            .catch(function(err){
+              console.log(err);
+            })
+         });
+        loadProperty();
+        clear();
       } // Cierre de la función update
-
    // Inicio de la función DiscountPrice que es la resta los valores ----PRUEBA.
       vm.DiscountPrice = function(){
         var playersList = playersService.getPlayers();

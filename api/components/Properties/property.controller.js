@@ -2,6 +2,8 @@ var Property = require('./property.model.js');
 
 module.exports.save = function(req, res){
   var newProperty = new Property({
+    name: req.body.name,
+    id: req.body.id,
     position: req.body.position,
     price: req.body.price,
     rent: req.body.rent,

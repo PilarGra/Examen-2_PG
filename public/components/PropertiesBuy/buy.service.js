@@ -9,8 +9,7 @@
 
     var publicAPI = {
       setBuy : _setBuy,
-      getBuy : _getBuy,
-      updateBuy : _updateBuy
+      getBuy : _getBuy
     }; // Cierre del publicAPI
     return publicAPI;
 
@@ -23,12 +22,6 @@
     function _getBuy(){
       return $http.get('http://localhost:3000/api/get_all_properties_buy');
     } // Cierre de la funcíon getBuy
-
-    // Inicio de la función updateBuy, que se encarga de permitir la edición de datos
-    function _updateBuy(pBuy){
-      console.log(pBuy);
-        return $http.put('http://localhost:3000/api/update_properties_buy',pBuy);
-    }// Fin de la función updateBuy
-
+ 
   }// Fin de función buyService
 })();

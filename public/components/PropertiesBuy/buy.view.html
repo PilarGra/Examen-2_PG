@@ -30,24 +30,24 @@
             <div class="row">
               <md-input-container class="col-xs-12 col-sm-12 col-md-12" layout="column">
                 <label for="">Seleccione el jugador que compra la propiedad:</label>
-                <input type="text" list="playerList" ng-model="vm.player" name="player" required>
+                <input type="text" list="playerList" ng-model="vm.players" name="player" required>
                 <datalist id="playerList">
                   <option value="">Seleccione un jugador</option>
-                  <option ng-repeat="player in vm.playerRel" value="{{player.name}}">{{vm.player.name}}</option>
+                  <option ng-repeat="players in vm.playerRel" value="{{players.namePlayer}}">{{vm.players.namePlayer}}</option>
                 </datalist>
-                <div ng-messages="frmRegisterBuy.player.$error">
+                <div ng-messages="frmRegisterBuy.players.$error">
                   <div ng-messages-include="components/includes/messages.html"></div>
                 </div> <!--cierre del ng-messages -->
               </md-input-container>
 
               <md-input-container class="col-xs-12 col-sm-12 col-md-12" layout="column">
                 <label for="">Seleccione la propiedad a comprar:</label>
-                <input type="text" list="propertyList" ng-model="vm.property" name="property" required>
+                <input type="text" list="propertyList" ng-model="vm.properties" name="property" required>
                 <datalist id="propertyList">
                   <option value="">Seleccione propiedad</option>
-                  <option ng-repeat="property in vm.propertyRel" value="{{property.name}}">{{vm.property.name}}</option>
+                  <option ng-repeat="properties in vm.propertyRel" value="{{properties.name}}">{{vm.properties.name}}</option>
                 </datalist>
-                <div ng-messages="frmRegisterBuy.property.$error">
+                <div ng-messages="frmRegisterBuy.properties.$error">
                   <div ng-messages-include="components/includes/messages.html"></div>
                 </div> <!--cierre del ng-messages -->
               </md-input-container>
@@ -87,7 +87,7 @@
         <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="buy in vm.buy | filter:vm.nameFilter">
           <md-card-header>
             <md-card-header-text>
-              <span class="md-title">{{buy.player}}</span>
+              <span class="md-title">{{buy.players}}</span>
               <span class="md-subhead">{{buy.property}}</span>
             </md-card-header-text>
           </md-card-header>

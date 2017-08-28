@@ -2,11 +2,13 @@
 var mongoose = require('mongoose');
 //Esquema de usuarios
 var PropertySchema = new mongoose.Schema({
+  name: String,
+  id: String,
   position: Number,
   price: Number,
   rent: Number,
   group: String,
-  ownedby: String,
+  ownedby: Number,
   housecost: Number
 });
  

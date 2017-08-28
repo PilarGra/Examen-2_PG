@@ -19,9 +19,4 @@ router.route('/get_all_properties_buy')
     buyController.findAll(req,res);
   });
 
- router.route('/update_properties_buy')
-  .put(function(req, res){
-    buyController.update(req,res);
-  });
-
 module.exports = router;
