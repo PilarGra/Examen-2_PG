@@ -1,24 +1,37 @@
 <div class="wrapper">
   <div class="main-panel">
-    <div id="main-tab"> 
+    <div id="main-tab">
       <div class="btn-group">
-        <a class="btn btn-info" ng-click="anterior()"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
-        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-          <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-        </a>
-        <ul class="dropdown-menu"> 
-          <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Comprar propiedad</a></li>
-          <li class="divider"></li>
-          <li><a href="#!/properties"><i class="fa fa-pencil fa-fw"></i> Ver propiedades compradas</a></li>
+        <ul class="nav">
+          <li class="dropdown">
+            <a class="btn btn-info" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-handshake-o"></i><p>Compra de propiedades  <span class="fa fa-caret-down"></span></p></a>
+              <div class="dropdown-backdrop"></div>
+                <ul class="dropdown-menu" role="">
+                  <li>
+                    <a ng-click="siguiente()"><i class="fa fa-pencil fa-fw"></i>Ver propiedades compradas</a>
+                  </li>
+                  <li>
+                    <a ng-click="anterior()"><i class="fa fa-book fa-fw"></i>Comprar propiedad</a>
+                  </li>
+                </ul>
+          </li>
         </ul>
       </div>
       <div class="btn-group">
-        <a class="btn btn-info" href="#!/players"><i class="fa fa-user fa-fw"></i>Jugadores</a>
+        <ul class="nav">
+          <li class="dropdown">
+            <a class="btn btn-info" href="#!/players"><i class="fa fa-user fa-fw"></i><p>Jugadores</p></a>
+          </li>
+        </ul>
       </div>
       <div class="btn-group">
-        <a class="btn btn-info" href="#!/properties"><i class="fa fa-building-o"></i>Propiedades</a>
+        <ul class="nav">
+          <li class="dropdown">
+            <a class="btn btn-info" href="#!/properties"><i class="fa fa-building-o"></i><p>Lista de propiedades</p></a>
+          </li>
+        </ul>
       </div>
-    </div><!-- Cierre main-tab -->
+    </div>
     <!-- Inicio de la sección registerBuy, que contiene el formulario del jugador, registrar, modificar y listar-->
     <div class="container-fluid" ng-show="pagina==1">
       <section id="registerBuy">
@@ -87,19 +100,10 @@
         <md-card class="container-fluid col-md-4 col-sm-6 " ng-repeat="buy in vm.buy | filter:vm.nameFilter">
           <md-card-header>
             <md-card-header-text>
-              <span class="md-title">{{buy.players}}</span>
-              <span class="md-subhead">{{buy.property}}</span>
+              <span class="md-title">Jugador que compra: {{buy.players}}</span>
+              <span class="md-subhead">Propiedad comprada: {{buy.properties}}</span>
             </md-card-header-text>
           </md-card-header>
-
-          <md-card-title>
-            <md-card-title-text>
-            </md-card-title-text>
-            <md-card-title-media>
-              <div class="md-media-md card-media">
-              </div>
-            </md-card-title-media>
-          </md-card-title>
 
           <!-- Boton para cambiar el editar los jugadores -->
           <md-card-actions id="buttons">

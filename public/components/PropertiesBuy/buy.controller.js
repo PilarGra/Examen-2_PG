@@ -8,6 +8,8 @@
 
      var vm = this;
      vm.buy  = '';
+     vm.playerRel = {};
+     vm.propertyRel= {};
      init();
 
       // Inicio de la función init que es la que se inicializa de primiera
@@ -40,11 +42,11 @@
       // Inicio de la función save, que se encarga de obtener los datos y enviarlos para ser guardados
       vm.save= function(){
         var newBuy = {
-          player: vm.player,
-          property: vm.property
+          players: vm.players,
+          properties: vm.properties
         } // Cierre de newBuy
 
-      if(vm.property.length === 0){
+      if(vm.properties.length === 0){
          propertyService.setBuy(newBuy);
          clean();
          init();
@@ -58,15 +60,15 @@
             // handling the promise rejection
              function (dismiss) {
               if (dismiss === 'timer') {
-                console.log('Compa exitosa')
+                console.log('¡Propiedad Vendida!')
               }
              }
            )
          return;
       } else{
           buyService.setBuy(newBuy).then(function (response) {
-            vm.player = null;
-            vm.property = null;
+            vm.players = null;
+            vm.properties = null;
           init();
           });
                swal({
@@ -90,8 +92,8 @@
       // Inicio: de la función getInfo, que se encarga de obtener los datos
       vm.getInfo = function(pBuy){
         vm.id = pBuy._id;
-        vm.player = pBuy.player;
-        vm.property = pBuy.property;
+        vm.players = pBuy.players;
+        vm.properties = pBuy.properties;
       } // Cierre de la función getInfo
 
       //función que cambia botones al precionar editar
@@ -104,11 +106,11 @@
       vm.update = function(){
         document.querySelector('#actualizar').classList.add('displayNone');
         document.querySelector('#registrar').classList.remove('displayNone');
-        var buyEdit = {
+        var buyPropertyEdit = {
           _id: vm.id,
-          player: vm.player,
-          property: vm.property,
-        } // Cierre de buyEdit
+          players: vm.players,
+          properties: vm.properties
+        } // Cierre de buyPropertyEdit
         swal({
          type: 'success',
          title: '¡Propiedad modificada correctamente!',
@@ -123,26 +125,27 @@
                }
              }
            )
-        buyService.updateBuy(buyEdit).then(function(response){
-          buyService.getProperty()
+        buyService.updateBuy(buyPropertyEdit).then(function(response){
+          buyService.getBuy()
             .then(function(response){
-              vm.property = response.data;
+              vm.buy = response.data;
             })
             .catch(function(err){
               console.log(err);
             })
          });
-        loadProperty();
-        clear();
+        init();
+        clean();
       } // Cierre de la función update
+      
    // Inicio de la función DiscountPrice que es la resta los valores ----PRUEBA.
       vm.DiscountPrice = function(){
         var playersList = playersService.getPlayers();
-        var buyList = buyService.getPurchases();
+        var buyList = buyService.getBuy();
         var disponible = 0;
 
-        for (var i = 0; i < purchasesList.length; i++) {
-          if (purchasesList[i].players = playersList[i].namePlayer) {
+        for (var i = 0; i < buyList.length; i++) {
+          if (buyList[i].players = playersList[i].namePlayer) {
             disponible = playersList[i].money - buyList[i].price;
             updateDescuento(disponible);
           }
@@ -152,7 +155,7 @@
      // Inicio de la función updateDescuento  que es la resta los valores en la card ----PRUEBA..
       function updateDescuento(pdisponible){
         var playersList = playersService.getPlayers();
-        var buyList = buyService.getPurchases();
+        var buyList = buyService.getBuy();
 
         for (var i = 0; i < buyList.length; i++) {
           if (buyList[i].players = playersList[i].namePlayer) {
@@ -164,8 +167,8 @@
 
       // Inicio de la función clean, que se encarga de limpiar los datos despúes de un registro
       function clean(){
-        vm.player = '';
-        vm.property = '';
+        vm.players = '';
+        vm.properties = '';
 
       } // Cierre clean
 

@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy');
 /*Estilos del form*/
 /*body*/
+body{
+  background color: #f2f2f2;
+}
 section h1{
   text-align: left;
   color: #efc2c2;
@@ -19,7 +22,18 @@ section h1{
   margin: 30px; 
 }
 #main-tab{
-  margin-left: 25px;
+  margin: 0px 25px;
+}
+#main-tab a:hover {
+  background-color: #efc2c2;
+}
+#main-tab .btn-group a{
+  padding: 5px 25px 0px;
+  margin: 0px 15px;
+  border-radius: 15px;
+}
+#main-tab .btn-group .dropdown-menu a{
+  margin: 5px 25px;
 }
 form .input-group .btn-info{
   background: #efc2c2;
@@ -47,10 +61,6 @@ form .input-group .btn-info:hover{
 }
 /*Fin estilos del buscador*/
 
-section hr{
-  background: #dcdcdc;
-  height: 1px;
-}
 .edit{
   padding: 5px 30px;
   background:#efc2c2;

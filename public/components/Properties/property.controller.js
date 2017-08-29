@@ -37,7 +37,6 @@
           price: vm.price,
           rent: vm.rent,
           group: vm.group,
-          ownedby: vm.ownedby,
           housecost: vw.housecost
         } // Cierre de newProperty
 
@@ -88,7 +87,6 @@
         vm.price = pProperty.price;
         vm.rent = pProperty.rent;
         vm.group = pProperty.group;
-        vm.ownedby = pProperty.ownedby;
         vm.housecost = pProperty.housecost;
       } // Cierre de la función getInfo
 
@@ -110,7 +108,6 @@
           price: vm.price,
           rent: vm.rent,
           group: vm.group,
-          ownedby: vm.ownedby,
           housecost: vm.housecost
         } // Cierre de PropertyEdit
         swal({
@@ -148,7 +145,6 @@
         vm.price = '';
         vm.rent = '';
         vm.group = '';
-        vm.ownedby = '';
         vm.housecost = '';
       } // Cierre de la función clean
 

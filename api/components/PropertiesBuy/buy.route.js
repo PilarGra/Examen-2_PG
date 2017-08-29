@@ -12,11 +12,16 @@ router.param('id', function(req, res, next, id){
 router.route('/save_properties_buy')
   .post(function(req,res){
     buyController.save(req,res);
-
   });
+
 router.route('/get_all_properties_buy')
   .get(function(req,res){
     buyController.findAll(req,res);
   });
 
+router.route('/update_properties_buy')
+  .put(function(req, res){
+    buyController.update(req,res);
+ 	});
+  
 module.exports = router;

@@ -8,7 +8,6 @@ module.exports.save = function(req, res){
     price: req.body.price,
     rent: req.body.rent,
     group: req.body.group,
-    ownedby: req.body.ownedby,
     housecost: req.body.housecost
   });
 

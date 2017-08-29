@@ -2,21 +2,30 @@
   <div class="main-panel">
     <div id="main-tab">
       <div class="btn-group">
-        <a class="btn btn-info" ng-click="anterior()"><i class="fa fa-building-o"></i> Ver propiedades</a>
-        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-          <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-        </a>
-        <ul class="dropdown-menu"> 
-          <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Disponibles</a></li>
-          <li class="divider"></li>
-          <li><a href="#!/properties"><i class="fa fa-pencil fa-fw"></i> Vendidas</a></li>
+        <ul class="nav">
+          <li class="dropdown">
+           <a class="btn btn-info" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-building-o"></i><p> Ver propiedades <span class="fa fa-caret-down"></span></p></a>
+           <div class="dropdown-backdrop"></div>
+            <ul class="dropdown-menu" role=""> 
+              <li><a ng-click="siguiente()"><i class="fa fa-book fa-fw"></i> Disponibles</a></li>
+              <li><a href="#!/properties"><i class="fa fa-pencil fa-fw"></i> Vendidas</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <div class="btn-group">
-        <a class="btn btn-info" href="#!/players"><i class="fa fa-user fa-fw"></i>Jugadores</a>
+        <ul class="nav">
+          <li class="dropdown">
+            <a class="btn btn-info" href="#!/players"><i class="fa fa-user fa-fw"></i><p>Jugadores</p></a>
+          </li>
+        </ul>
       </div>
       <div class="btn-group">
-        <a class="btn btn-info" href="#!/propertiesBuy"><i class="fa fa-handshake-o"></i>Compra de propiedades</a>
+        <ul class="nav">
+          <li class="dropdown">
+            <a class="btn btn-info" href="#!/propertiesBuy"><i class="fa fa-handshake-o"></i><p>Compra de propiedades</p></a>
+          </li>
+        </ul>
       </div> 
     </div> <!-- Cierre del main-tab-->
     <!-- Inicio de la sección registerPropietary, que contiene el formulario de la propiedad, registrar, modificar y listar-->
@@ -52,7 +61,6 @@
                 <span class="md-subhead">Precio: {{property.price}}</span>
                 <span class="md-subhead">Renta: {{property.rent}}</span>
                 <span class="md-subhead">Grupo al que pertenece la propiedad: {{property.group}}</span>
-                <span class="md-subhead">Dueño de la propiedad: {{property.ownedby}}</span>
                 <span class="md-subhead">Costo de casa: {{property.housecost}}</span>
               </md-card-title-text>
             </md-card-title>
@@ -92,8 +100,7 @@
             <span class="md-subhead">Precio: {{property.price}}</span>
             <span class="md-subhead">Renta: {{property.rent}}</span>
             <span class="md-subhead">Grupo al que pertenece la propiedad: {{property.group}}</span>
-            <span class="md-subhead">Dueño de la propiedad: {{property.ownedby}}</span>
-            <span class="md-subhead">Hipoteca: {{property.mortgaged}}</span>
+            <span class="md-subhead">Costo de casa: {{property.housecost}}</span>
           </md-card-title-text>
         </md-card-title>
         <!-- Boton para cambiar el editar las propiedades -->

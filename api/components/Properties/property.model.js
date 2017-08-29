@@ -8,7 +8,6 @@ var PropertySchema = new mongoose.Schema({
   price: Number,
   rent: Number,
   group: String,
-  ownedby: Number,
   housecost: Number
 });
  

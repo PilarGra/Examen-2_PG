@@ -9,7 +9,8 @@
 
     var publicAPI = {
       setBuy : _setBuy,
-      getBuy : _getBuy
+      getBuy : _getBuy,
+      updateBuy : _updateBuy
     }; // Cierre del publicAPI
     return publicAPI;
 
@@ -21,6 +22,11 @@
     // Inicio de la función getBuy, que se encarga de obtener los datos más actualizados
     function _getBuy(){
       return $http.get('http://localhost:3000/api/get_all_properties_buy');
+    } // Cierre de la funcíon getBuy
+ 
+    function _updateBuy(pBuy){
+      console.log(pBuy);
+      return $http.put('http://localhost:3000/api/update_properties_buy',pBuy);
     } // Cierre de la funcíon getBuy
  
   }// Fin de función buyService
